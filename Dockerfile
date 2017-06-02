@@ -18,19 +18,19 @@ RUN dpkg-reconfigure locales
 # Instalação do ruby 1.8.7
 #------------------------------------------
 
-RUN apt-get -qq update && \
-	apt-get -qq install -y 	wget imagemagick dirmngr patch make libsqlite3-dev \
-							libmysqlclient-dev libxslt-dev gcc \
-							curl wget libxml2-dev sudo ca-certificates \
-							graphicsmagick-libmagick-dev-compat libpq5 \
-							libsqlite3-0 bzr git mercurial openssh-client \
-							bzip2 gawk g++ libssl-dev libc6-dev zlib1g-dev \
-							libyaml-dev sqlite3 autoconf libgmp-dev libgdbm-dev \
-							libncurses5-dev automake libtool bison pkg-config libffi-dev \
-							libreadline6-devimagemagick libmagickcore-dev libmagickwand-dev \
-							libmagick++-dev libcurl3 libxml2 libxslt1-dev libcurl4-gnutls-dev \
-							git-core mysql-client memcached build-essential libpq-dev libaio1 unzip \
-							zlib1g zlib1g-dev wget libyaml-dev bison libssl-dev libreadline6-dev autoconf subversion curl
+RUN apt-get update && apt-get install -y --no-install-recommends \ 	
+	wget imagemagick dirmngr patch make libsqlite3-dev \
+	libmysqlclient-dev libxslt-dev gcc \
+	curl wget libxml2-dev sudo ca-certificates \
+	graphicsmagick-libmagick-dev-compat libpq5 \
+	libsqlite3-0 bzr git mercurial openssh-client \
+	bzip2 gawk g++ libssl-dev libc6-dev zlib1g-dev \
+	libyaml-dev sqlite3 autoconf libgmp-dev libgdbm-dev \
+	libncurses5-dev automake libtool bison pkg-config libffi-dev \
+	libreadline6-devimagemagick libmagickcore-dev libmagickwand-dev \
+	libmagick++-dev libcurl3 libxml2 libxslt1-dev libcurl4-gnutls-dev \
+	git-core mysql-client memcached build-essential libpq-dev libaio1 unzip \
+	zlib1g zlib1g-dev wget libyaml-dev bison libssl-dev libreadline6-dev autoconf subversion curl
 
 # Build Ruby
 RUN wget -q -O ruby-1.8.7-p370.tar.gz http://cache.ruby-lang.org/pub/ruby/1.8/ruby-1.8.7-p370.tar.gz
