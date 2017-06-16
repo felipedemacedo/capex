@@ -159,13 +159,14 @@ RUN gem install --no-rdoc --no-ri arel -v 7.1.4 && \
 	gem install --no-rdoc --no-ri bundle -v 0.0.1 && \
 	gem install --no-rdoc --no-ri bundler -v 1.14.3
 	
-RUN gem install --no-rdoc --no-ri coderay -v 1.1.1 
-RUN gem install --no-rdoc --no-ri erubis -v 2.7.0 
-RUN gem install --no-rdoc --no-ri google-spreadsheet-ruby -v 0.1.5 
-RUN gem install --no-rdoc --no-ri method_source -v 0.8.2 
-RUN gem install --no-rdoc --no-ri minitest -v 5.10.1 
-RUN gem install --no-rdoc --no-ri mongrel_service 0.3.4 
-RUN gem install --no-rdoc --no-ri rb-fsevent -v 0.9.8
+#RUN gem install --no-rdoc --no-ri google-spreadsheet-ruby -v 0.1.5 
+
+RUN gem install --no-rdoc --no-ri coderay -v 1.1.1 && \
+	gem install --no-rdoc --no-ri erubis -v 2.7.0  && \
+	gem install --no-rdoc --no-ri method_source -v 0.8.2 && \ 
+	gem install --no-rdoc --no-ri minitest -v 5.10.1  && \
+	gem install --no-rdoc --no-ri mongrel_service 0.3.4  && \
+	gem install --no-rdoc --no-ri rb-fsevent -v 0.9.8
 	
 RUN	gem install --no-rdoc --no-ri roo 1.10.0 && \
 	gem install --no-rdoc --no-ri rubygems-update -v 2.6.4 && \
