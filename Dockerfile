@@ -157,8 +157,9 @@ RUN gem install --no-rdoc --no-ri arel -v 7.1.4 && \
 	gem install --no-rdoc --no-ri bower-rails -v 0.11.0  && \
 	gem install --no-rdoc --no-ri builder -v 3.2.3 && \
 	gem install --no-rdoc --no-ri bundle -v 0.0.1 && \
-	gem install --no-rdoc --no-ri bundler -v 1.14.3 && \
-	gem install --no-rdoc --no-ri coderay -v 1.1.1 && \
+	gem install --no-rdoc --no-ri bundler -v 1.14.3
+	
+RUN gem install --no-rdoc --no-ri coderay -v 1.1.1 && \
 	gem install --no-rdoc --no-ri erubis -v 2.7.0 && \
 	gem install --no-rdoc --no-ri google-spreadsheet-ruby -v 0.1.5 && \
 	gem install --no-rdoc --no-ri method_source -v 0.8.2 && \
