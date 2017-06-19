@@ -161,27 +161,26 @@ RUN gem install --no-rdoc --no-ri arel -v 7.1.4 && \
 	
 #RUN gem install --no-rdoc --no-ri google-spreadsheet-ruby -v 0.1.5 
 
-RUN gem install --no-rdoc --no-ri coderay -v 1.1.1 && \
-	gem install --no-rdoc --no-ri erubis -v 2.7.0  && \
-	gem install --no-rdoc --no-ri method_source -v 0.8.2 && \ 
-	gem install --no-rdoc --no-ri minitest -v 5.10.1  && \
-	gem install --no-rdoc --no-ri mongrel_service 0.3.4  && \
-	gem install --no-rdoc --no-ri rb-fsevent -v 0.9.8
-	
-RUN	gem install --no-rdoc --no-ri roo 1.10.0 && \
-	gem install --no-rdoc --no-ri rubygems-update -v 2.6.4 && \
-	gem install --no-rdoc --no-ri sass -v 3.4.23 && \
-	gem install --no-rdoc --no-ri slop 3.6.0 && \
-	gem install --no-rdoc --no-ri sqlite3 -v 1.3.13 && \
-	gem install --no-rdoc --no-ri thor -v 0.19.4 && \
-	gem install --no-rdoc --no-ri thread_safe -v 0.3.5 && \
-	gem install --no-rdoc --no-ri tilt -v 2.0.6 && \
-	gem install --no-rdoc --no-ri websocket-extensions -v 0.1.2 && \
-	gem install --no-rdoc --no-ri win32-api -v 1.2.0 && \
-	gem install --no-rdoc --no-ri win32-service -v 0.6.1  && \
-	gem install --no-rdoc --no-ri win32-service -v 0.5.2  && \
-	gem install --no-rdoc --no-ri windows-api -v 0.2.4 && \
-	gem install --no-rdoc --no-ri windows-pr -v 0.9.2
+RUN gem install --no-rdoc --no-ri coderay -v 1.1.1 
+RUN gem install --no-rdoc --no-ri erubis -v 2.7.0  
+RUN gem install --no-rdoc --no-ri method_source -v 0.8.2 
+RUN gem install --no-rdoc --no-ri minitest -v 5.10.1  
+RUN gem install --no-rdoc --no-ri mongrel_service 0.3.4  
+RUN gem install --no-rdoc --no-ri rb-fsevent -v 0.9.8
+RUN	gem install --no-rdoc --no-ri roo 1.10.0 
+RUN gem install --no-rdoc --no-ri rubygems-update -v 2.6.4 
+RUN gem install --no-rdoc --no-ri sass -v 3.4.23 
+RUN gem install --no-rdoc --no-ri slop 3.6.0 
+RUN gem install --no-rdoc --no-ri sqlite3 -v 1.3.13 
+RUN gem install --no-rdoc --no-ri thor -v 0.19.4 
+RUN gem install --no-rdoc --no-ri thread_safe -v 0.3.5 
+RUN gem install --no-rdoc --no-ri tilt -v 2.0.6 
+RUN gem install --no-rdoc --no-ri websocket-extensions -v 0.1.2 
+RUN gem install --no-rdoc --no-ri win32-api -v 1.2.0 
+RUN gem install --no-rdoc --no-ri win32-service -v 0.6.1  
+RUN gem install --no-rdoc --no-ri win32-service -v 0.5.2  
+RUN gem install --no-rdoc --no-ri windows-api -v 0.2.4 
+RUN gem install --no-rdoc --no-ri windows-pr -v 0.9.2
 
 #------------------------------------------
 # Instalação do java
