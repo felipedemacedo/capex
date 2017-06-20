@@ -2,10 +2,6 @@ FROM ubuntu:14.04
 
 MAINTAINER felipederodrigues
 
-#------------------------------------------
-# Instalação do ImageMagick
-#------------------------------------------
-
 # Ignore APT warnings about not having a TTY
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -18,19 +14,23 @@ RUN dpkg-reconfigure locales
 # Instalação do ruby 1.8.7
 #------------------------------------------
 
-RUN apt-get update && apt-get install -y --no-install-recommends \ 	
-	wget imagemagick dirmngr patch make libsqlite3-dev \
-	libmysqlclient-dev libxslt-dev gcc \
-	curl wget libxml2-dev sudo ca-certificates \
-	graphicsmagick-libmagick-dev-compat libpq5 \
-	libsqlite3-0 bzr git mercurial openssh-client \
-	bzip2 gawk g++ libssl-dev libc6-dev zlib1g-dev \
-	libyaml-dev sqlite3 autoconf libgmp-dev libgdbm-dev \
-	libncurses5-dev automake libtool bison pkg-config libffi-dev \
-	libreadline6-devimagemagick libmagickcore-dev libmagickwand-dev \
-	libmagick++-dev libcurl3 libxml2 libxslt1-dev libcurl4-gnutls-dev \
-	git-core mysql-client memcached build-essential libpq-dev libaio1 unzip \
-	zlib1g zlib1g-dev wget libyaml-dev bison libssl-dev libreadline6-dev autoconf subversion curl
+RUN apt-get update 
+RUN apt-get -qq install -y dirmngr patch make \
+                           libsqlite3-dev libmysqlclient-dev libxslt-dev \
+                           gcc curl wget libxml2-dev \
+                           sudo ca-certificates  \
+                           graphicsmagick-libmagick-dev-compat libpq5 \
+                           libsqlite3-0 bzr git mercurial openssh-client bzip2 gawk g++ 
+RUN apt-get -qq install -y libssl-dev libc6-dev zlib1g-dev libyaml-dev sqlite3 \
+                           autoconf libgmp-dev libgdbm-dev libncurses5-dev automake \
+                           libtool bison pkg-config libffi-dev libreadline6-dev \
+                           imagemagick libmagickcore-dev libmagickwand-dev libmagick++-dev \
+                           libcurl3 libxml2 libxslt1-dev libcurl4-gnutls-dev git-core mysql-client memcached \
+						   build-essential libpq-dev libaio1 unzip
+#------------------------------------------
+# Dependências da gem ruby-oci8 -v 1.0.2
+#RUN apt-get -y -qq install build-essential libpq-dev libaio1 unzip
+#------------------------------------------
 
 # Build Ruby
 RUN wget -q -O ruby-1.8.7-p370.tar.gz http://cache.ruby-lang.org/pub/ruby/1.8/ruby-1.8.7-p370.tar.gz
@@ -43,8 +43,7 @@ RUN make install
 
 # Install RubyGems
 WORKDIR /
-RUN wget http://production.cf.rubygems.org/rubygems/rubygems-1.8.22.tgz
-RUN tar -xvzf rubygems-1.8.22.tgz
+RUN wget http://production.cf.rubygems.org/rubygems/rubygems-1.8.22.tgz && tar -xvzf rubygems-1.8.22.tgz
 WORKDIR /rubygems-1.8.22
 RUN sudo ruby setup.rb
 RUN gem update --system 1.7.2
@@ -163,28 +162,30 @@ RUN gem install --no-rdoc --no-ri arel -v 7.1.4 && \
 	gem install --no-rdoc --no-ri bower-rails -v 0.11.0  && \
 	gem install --no-rdoc --no-ri builder -v 3.2.3 && \
 	gem install --no-rdoc --no-ri bundle -v 0.0.1 && \
-	gem install --no-rdoc --no-ri bundler -v 1.14.3 && \
-	gem install --no-rdoc --no-ri coderay -v 1.1.1 && \
-	gem install --no-rdoc --no-ri erubis -v 2.7.0 && \
-	gem install --no-rdoc --no-ri google-spreadsheet-ruby -v 0.1.5 && \
-	gem install --no-rdoc --no-ri method_source -v 0.8.2 && \
-	gem install --no-rdoc --no-ri minitest -v 5.10.1 && \
-	gem install --no-rdoc --no-ri mongrel_service 0.3.4 && \
-	gem install --no-rdoc --no-ri rb-fsevent -v 0.9.8 && \
-	gem install --no-rdoc --no-ri roo 1.10.0 && \
-	gem install --no-rdoc --no-ri rubygems-update -v 2.6.4 && \
-	gem install --no-rdoc --no-ri sass -v 3.4.23 && \
-	gem install --no-rdoc --no-ri slop 3.6.0 && \
-	gem install --no-rdoc --no-ri sqlite3 -v 1.3.13 && \
-	gem install --no-rdoc --no-ri thor -v 0.19.4 && \
-	gem install --no-rdoc --no-ri thread_safe -v 0.3.5 && \
-	gem install --no-rdoc --no-ri tilt -v 2.0.6 && \
-	gem install --no-rdoc --no-ri websocket-extensions -v 0.1.2 && \
-	gem install --no-rdoc --no-ri win32-api -v 1.2.0 && \
-	gem install --no-rdoc --no-ri win32-service -v 0.6.1  && \
-	gem install --no-rdoc --no-ri win32-service -v 0.5.2  && \
-	gem install --no-rdoc --no-ri windows-api -v 0.2.4 && \
-	gem install --no-rdoc --no-ri windows-pr -v 0.9.2
+	gem install --no-rdoc --no-ri bundler -v 1.14.3
+	
+#RUN gem install --no-rdoc --no-ri google-spreadsheet-ruby -v 0.1.5 
+
+RUN gem install --no-rdoc --no-ri coderay -v 1.1.1 
+RUN gem install --no-rdoc --no-ri erubis -v 2.7.0  
+RUN gem install --no-rdoc --no-ri method_source -v 0.8.2 
+RUN gem install --no-rdoc --no-ri minitest -v 5.10.1  
+#RUN gem install --no-rdoc --no-ri mongrel_service 0.3.4  
+RUN gem install --no-rdoc --no-ri rb-fsevent -v 0.9.8
+#RUN	gem install --no-rdoc --no-ri roo 1.10.0 
+RUN gem install --no-rdoc --no-ri rubygems-update -v 2.6.4 
+RUN gem install --no-rdoc --no-ri sass -v 3.4.23 
+#RUN gem install --no-rdoc --no-ri slop 3.6.0 
+RUN gem install --no-rdoc --no-ri sqlite3 -v 1.3.13 
+RUN gem install --no-rdoc --no-ri thor -v 0.19.4 
+RUN gem install --no-rdoc --no-ri thread_safe -v 0.3.5 
+RUN gem install --no-rdoc --no-ri tilt -v 2.0.6 
+RUN gem install --no-rdoc --no-ri websocket-extensions -v 0.1.2 
+#RUN gem install --no-rdoc --no-ri win32-api -v 1.2.0 
+#RUN gem install --no-rdoc --no-ri win32-service -v 0.6.1  
+#RUN gem install --no-rdoc --no-ri win32-service -v 0.5.2  
+#RUN gem install --no-rdoc --no-ri windows-api -v 0.2.4 
+#RUN gem install --no-rdoc --no-ri windows-pr -v 0.9.2
 
 #------------------------------------------
 # Instalação do java
