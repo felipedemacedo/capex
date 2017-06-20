@@ -176,11 +176,11 @@ RUN gem install --no-rdoc --no-ri thor -v 0.19.4
 RUN gem install --no-rdoc --no-ri thread_safe -v 0.3.5 
 RUN gem install --no-rdoc --no-ri tilt -v 2.0.6 
 RUN gem install --no-rdoc --no-ri websocket-extensions -v 0.1.2 
-RUN gem install --no-rdoc --no-ri win32-api -v 1.2.0 
-RUN gem install --no-rdoc --no-ri win32-service -v 0.6.1  
-RUN gem install --no-rdoc --no-ri win32-service -v 0.5.2  
-RUN gem install --no-rdoc --no-ri windows-api -v 0.2.4 
-RUN gem install --no-rdoc --no-ri windows-pr -v 0.9.2
+#RUN gem install --no-rdoc --no-ri win32-api -v 1.2.0 
+#RUN gem install --no-rdoc --no-ri win32-service -v 0.6.1  
+#RUN gem install --no-rdoc --no-ri win32-service -v 0.5.2  
+#RUN gem install --no-rdoc --no-ri windows-api -v 0.2.4 
+#RUN gem install --no-rdoc --no-ri windows-pr -v 0.9.2
 
 #------------------------------------------
 # Instalação do java
