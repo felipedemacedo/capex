@@ -25,7 +25,12 @@ RUN apt-get -qq install -y libssl-dev libc6-dev zlib1g-dev libyaml-dev sqlite3 \
                            autoconf libgmp-dev libgdbm-dev libncurses5-dev automake \
                            libtool bison pkg-config libffi-dev libreadline6-dev \
                            imagemagick libmagickcore-dev libmagickwand-dev libmagick++-dev \
-                           libcurl3 libxml2 libxslt1-dev libcurl4-gnutls-dev git-core mysql-client memcached
+                           libcurl3 libxml2 libxslt1-dev libcurl4-gnutls-dev git-core mysql-client memcached \
+						   build-essential libpq-dev libaio1 unzip
+#------------------------------------------
+# Dependências da gem ruby-oci8 -v 1.0.2
+#RUN apt-get -y -qq install build-essential libpq-dev libaio1 unzip
+#------------------------------------------
 
 # Build Ruby
 RUN wget -q -O ruby-1.8.7-p370.tar.gz http://cache.ruby-lang.org/pub/ruby/1.8/ruby-1.8.7-p370.tar.gz
