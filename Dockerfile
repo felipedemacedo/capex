@@ -101,7 +101,7 @@ RUN gem install --no-rdoc --no-ri prawn -v 1.0.0.rc2 && \
 	gem install --no-rdoc --no-ri rgl -v 0.4.0 && \
 	gem install --no-rdoc --no-ri ruby-ole -v 1.2.11.2 && \
 	gem install --no-rdoc --no-ri ruby-rc4 -v 0.1.5 && \
-	gem install --no-rdoc --no-ri rubyzip -v 0.9.4 && \
+	gem install --no-rdoc --no-ri rubyzip -v 0.9.9 && \
 	gem install --no-rdoc --no-ri spreadsheet -v 0.6.5.9 && \
 	gem install --no-rdoc --no-ri sqlite3-ruby -v 1.3.1 && \
 	gem install --no-rdoc --no-ri stream -v 0.5 && \
