@@ -209,4 +209,6 @@ RUN gem install --no-rdoc --no-ri rails -v 1.2.6
 #RUN gem install --no-rdoc --no-ri google-spreadsheet-ruby -v 0.1.5
 #RUN gem install --no-rdoc --no-ri roo -v 1.10.0
 
+ENV NLS_LANG AMERICAN_AMERICA.WE8ISO8859P15
+
 CMD ["sh", "-c", "./run.sh ; /bin/bash"]
