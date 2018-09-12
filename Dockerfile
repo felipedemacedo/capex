@@ -105,9 +105,9 @@ RUN gem install --no-rdoc --no-ri prawn -v 1.0.0.rc2 && \
 	gem install --no-rdoc --no-ri treetop -v 1.4.15 && \
 	gem install --no-rdoc --no-ri ttfunk -v 1.0.3 && \
 	gem install --no-rdoc --no-ri tzinfo -v 0.3.29 && \
-	gem install --no-rdoc --no-ri mongrel_service -v 0.4.0 && \
-	gem install --no-rdoc --no-ri mongrel -v 1.1.5 && \
-	gem install --no-rdoc --no-ri ffi -v 0.6.3 && \
+	gem install --no-rdoc --no-ri mongrel_service -v 0.4.0 --platform i386-mswin32 && \
+	gem install --no-rdoc --no-ri mongrel -v 1.1.5 --platform i386-mswin32 && \
+	gem install --no-rdoc --no-ri ffi -v 0.6.3 --platform i386-mswin32 && \
 	gem install --no-rdoc --no-ri rmagick -v 2.12.0
 
 #--------------------
@@ -120,10 +120,10 @@ RUN gem install --no-rdoc --no-ri mysql -v 2.8.1
 #------------------------------------------
 
 #RUN gem install --no-rdoc --no-ri roo -v 1.10.3
-RUN git clone https://github.com/roo-rb/roo.git /usr/local/lib/ruby/gems/1.8/gems/roo-1.10.3
-WORKDIR /usr/local/lib/ruby/gems/1.8/gems/roo-1.10.3
+RUN git clone https://github.com/roo-rb/roo.git /usr/local/lib/ruby/gems/1.9.1/gems/roo-1.10.3
+WORKDIR /usr/local/lib/ruby/gems/1.9.1/gems/roo-1.10.3
 RUN git checkout v1.10.3
-RUN cp /usr/local/lib/ruby/gems/1.8/gems/roo-1.10.3/roo.gemspec /usr/local/lib/ruby/gems/1.8/specifications/roo.gemspec
+RUN cp /usr/local/lib/ruby/gems/1.9.1/gems/roo-1.10.3/roo.gemspec /usr/local/lib/ruby/gems/1.9.1/specifications/roo.gemspec
 
 #------------------------------------------
 # Instalação de gem ruby-oci8 -v 1.0.2
