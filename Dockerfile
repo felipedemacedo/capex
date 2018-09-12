@@ -142,7 +142,7 @@ ENV LD_LIBRARY_PATH /opt/oracle/instantclient_12_2
 RUN LD_LIBRARY_PATH=/opt/oracle/instantclient_12_2
 RUN export LD_LIBRARY_PATH
 RUN mkdir -p /usr/include/sys && ln -s /usr/include/linux/types.h /usr/include/sys/types.h
-RUN gem install --no-rdoc --no-ri ruby-oci8 -v 1.0.2
+RUN gem install --no-rdoc --no-ri ruby-oci8 -v 2.2.6
 
 RUN gem install --no-rdoc --no-ri arel -v 7.1.4 && \
 	gem install --no-rdoc --no-ri bower-rails -v 0.11.0  && \
