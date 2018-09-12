@@ -11,7 +11,7 @@ RUN locale-gen en_GB.UTF-8
 RUN dpkg-reconfigure locales
 
 #------------------------------------------
-# Instalação do ruby 1.8.7
+# Instalação do ruby 1.9.3
 #------------------------------------------
 
 RUN apt-get update 
@@ -27,16 +27,12 @@ RUN apt-get -qq install -y libssl-dev libc6-dev zlib1g-dev libyaml-dev sqlite3 \
                            imagemagick libmagickcore-dev libmagickwand-dev libmagick++-dev \
                            libcurl3 libxml2 libxslt1-dev libcurl4-gnutls-dev git-core mysql-client memcached \
 						   build-essential libpq-dev libaio1 unzip
-#------------------------------------------
-# Dependências da gem ruby-oci8 -v 1.0.2
-#RUN apt-get -y -qq install build-essential libpq-dev libaio1 unzip
-#------------------------------------------
 
 # Build Ruby
-RUN wget -q -O ruby-1.8.7-p370.tar.gz http://cache.ruby-lang.org/pub/ruby/1.8/ruby-1.8.7-p370.tar.gz
-RUN tar xvf ruby-1.8.7-p370.tar.gz
-RUN rm ruby-1.8.7-p370.tar.gz
-WORKDIR ruby-1.8.7-p370
+RUN wget -q -O ruby-1.9.3-p551.tar.gz http://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p551.tar.gz
+RUN tar xvf ruby-1.9.3-p551.tar.gz
+RUN rm ruby-1.9.3-p551.tar.gz
+WORKDIR ruby-1.9.3-p551
 RUN ./configure
 RUN make
 RUN make install
@@ -128,16 +124,6 @@ RUN git clone https://github.com/roo-rb/roo.git /usr/local/lib/ruby/gems/1.8/gem
 WORKDIR /usr/local/lib/ruby/gems/1.8/gems/roo-1.10.3
 RUN git checkout v1.10.3
 RUN cp /usr/local/lib/ruby/gems/1.8/gems/roo-1.10.3/roo.gemspec /usr/local/lib/ruby/gems/1.8/specifications/roo.gemspec
-
-#------------------------------------------
-# Instalação de gem gruff -v 1.10.3 * MODIFIED: CUSTOMIZED FOR SPECIFIC APP
-# For more info check: https://github.com/betonix/gruff
-#------------------------------------------
-
-#RUN rm -rf /usr/local/lib/ruby/gems/1.8/gems/gruff-0.3.7/*
-#RUN git clone https://github.com/betonix/gruff.git /usr/local/lib/ruby/gems/1.8/gems/gruff-0.3.7
-#RUN ls -l /usr/local/lib/ruby/gems/1.8/gems/gruff-0.3.7
-#RUN cp /usr/local/lib/ruby/gems/1.8/gems/gruff-0.3.7/gruff.gemspec /usr/local/lib/ruby/gems/1.8/specifications/gruff.gemspec
 
 #------------------------------------------
 # Instalação de gem ruby-oci8 -v 1.0.2

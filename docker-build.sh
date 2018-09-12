@@ -1,6 +1,6 @@
 #!/bin/sh
 
-docker build -t felipederodrigues/capex:latest .
+docker build -t felipederodrigues/capex:ruby193 .
 
 #docker rm -f licenze_container
 
