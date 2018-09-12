@@ -5,7 +5,7 @@ Repository used during build of a simple Ruby Docker Container and some Ruby gem
 GitHub: https://github.com/felipedemacedo/capex
 DockerHub: https://hub.docker.com/r/felipederodrigues/capex/
 
-Ruby **1.8.7** (2014-01-28 patchlevel 376) [x86_64-linux]
+Ruby **1.9.3** (2015-07-25 patchlevel 551) [x86_64-linux]
 
 Rails **2.3.5**
 
